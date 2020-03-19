@@ -33,13 +33,17 @@ class FourthStep extends Component {
                             </div>
                         </div>
 
-                            <button className="btn  btn--top-indent">Далее</button>
+                            <button onClick={this.chooseHoliday}  className="btn  btn--top-indent">Далее</button>
 
                     </div>
                     </div>
                 </main>
             </div>
         );
+    }
+
+    chooseHoliday = () =>{
+        this.props.updateIsActiveStep(5);
     }
 }
 

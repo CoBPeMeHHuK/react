@@ -21,7 +21,7 @@ class FirstStep extends Component {
                                         <div className="minicards__dscr ">
                                             <p className="minicards__text "></p>
                                         </div>
-                                        <button className="btn">
+                                        <button onClick={this.chooseHoliday} className="btn">
                                             <span>Выбрать</span>
                                         </button>
                                     </div>
@@ -41,7 +41,7 @@ class FirstStep extends Component {
                                         <div className="minicards__dscr ">
                                             <p className="minicards__text "></p>
                                         </div>
-                                        <button className="btn">
+                                        <button onClick={this.chooseHoliday} className="btn">
                                             <span>Выбрать</span>
                                         </button>
                                     </div>
@@ -61,7 +61,7 @@ class FirstStep extends Component {
                                         <div className="minicards__dscr ">
                                             <p className="minicards__text "></p>
                                         </div>
-                                        <button className="btn">
+                                        <button onClick={this.chooseHoliday} className="btn">
                                             <span>Выбрать</span>
                                         </button>
                                     </div>
@@ -81,7 +81,7 @@ class FirstStep extends Component {
                                         <div className="minicards__dscr ">
                                             <p className="minicards__text "></p>
                                         </div>
-                                        <button className="btn">
+                                        <button onClick={this.chooseHoliday} className="btn">
                                             <span>Выбрать</span>
                                         </button>
                                     </div>
@@ -93,6 +93,9 @@ class FirstStep extends Component {
                 </main>
             </div>
         );
+    }
+    chooseHoliday = () =>{
+        this.props.updateIsActiveStep(2);
     }
 }
 

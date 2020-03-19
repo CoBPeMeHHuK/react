@@ -23,7 +23,7 @@ class SecondStep extends Component {
                                                 <div className="minicards__dscr">
                                                     <p className="minicards__text"></p>
                                                 </div>
-                                                <button className="btn  btn--small-indents">
+                                                <button onClick={this.chooseHoliday} className="btn  btn--small-indents">
                                                     <span>Выбрать : 7 000 ₽</span>
                                                 </button>
                                             </div>
@@ -41,6 +41,10 @@ class SecondStep extends Component {
                 </main>
             </div>
         );
+    }
+
+    chooseHoliday = () =>{
+        this.props.updateIsActiveStep(3);
     }
 }
 

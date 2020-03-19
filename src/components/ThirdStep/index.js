@@ -22,12 +22,16 @@ class ThirdStep extends Component {
                         </div>
                     </div>
 
-                    <div className="btn-wrap">
+                    <div onClick={this.chooseHoliday}  className="btn-wrap">
                         <button className="btn">Далее</button>
                     </div>
                 </main>
             </div>
         );
+    }
+
+    chooseHoliday = () =>{
+        this.props.updateIsActiveStep(4);
     }
 }
 
