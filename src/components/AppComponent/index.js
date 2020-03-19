@@ -9,35 +9,46 @@ import Footer from "../Footer";
 import Form from "../Form";
 
 class AppComponent extends Component {
+
+    state = {
+        isActiveStep:1,
+        isActiveForm:false
+    };
     render() {
+
         return (
             <div className="page">
                 <div className="page__inner">
                     <div id="app">
-                        <Header />
+                        <Header updateIsActiveStep={this.updateIsActiveStep} />
 
                         <div id="wrapper" className="page__wrap-main-content">
 
-                        <FirstStep />
+                            { this.state.isActiveStep === 1 && <FirstStep updateIsActiveStep={this.updateIsActiveStep}  /> }
 
-                        <SecondStep />
+                            {  this.state.isActiveStep === 2 && <SecondStep updateIsActiveStep={this.updateIsActiveStep} /> }
 
-                        <ThirdStep />
+                            {  this.state.isActiveStep === 3 && <ThirdStep updateIsActiveStep={this.updateIsActiveStep} /> }
 
-                        <FourthStep />
+                            {  this.state.isActiveStep === 4 && <FourthStep updateIsActiveStep={this.updateIsActiveStep} />  }
 
-                        <FifthStep />
+                            {  this.state.isActiveStep === 5 && <FifthStep updateIsActiveStep={this.updateIsActiveStep} />  }
 
                         </div>
 
                         <Footer />
 
-                        <Form />
+                        {  this.state.isActiveForm && <Form />  }
 
                     </div>
                 </div>
             </div>
         );
+
+    }
+
+    updateIsActiveStep = (value) => {
+        this.setState({ isActiveStep : value})
     }
 }
 
