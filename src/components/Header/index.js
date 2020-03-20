@@ -61,30 +61,50 @@ class Header extends Component {
                 </div>
 
                 <div className="step">
-
-                    {/*<a v-if="selectTab==2" class="step__link  step__link--prev" v-on:click="selectTab=1"><i class="step__arrow  step__arrow--prev"></i>назад</a>*/}
-                    {/*<a v-if="selectTab==3" class="step__link  step__link--prev" v-on:click="selectTab=2"><i class="step__arrow  step__arrow--prev"></i>назад</a>*/}
-                    {/*<a v-if="selectTab==4" class="step__link  step__link--prev" v-on:click="selectTab=3"><i class="step__arrow  step__arrow--prev"></i>назад</a>*/}
-                    {/*<a v-if="selectTab==5" class="step__link  step__link--prev" v-on:click="selectTab=4"><i class="step__arrow  step__arrow--prev"></i>назад</a>*/}
-                    {/*<div class="step__text-wrap">*/}
-                    {/*    <span class="step__dscr">{{ stepsTitle[selectTab] }}</span>*/}
-                    {/*</div>*/}
-                    {/*<a class="step__link  step__link--next" v-if="selectTab==1" v-on:click="selectTab=2">пропустить<i class="step__arrow  step__arrow--next"></i></a>*/}
-                    {/*<a class="step__link  step__link--next" v-if="selectTab==2" v-on:click="selectTab=3">пропустить<i class="step__arrow  step__arrow--next"></i></a>*/}
-                    {/*<a class="step__link  step__link--next" v-if="selectTab==3" v-on:click="selectTab=4">пропустить<i class="step__arrow  step__arrow--next"></i></a>*/}
-                    {/*<a class="step__link  step__link--next" v-if="selectTab==4" v-on:click="selectTab=5">пропустить<i class="step__arrow  step__arrow--next"></i></a>*/}
-
+                    {this.getButtonBack()}
+                    <div className="step__text-wrap">
+                        <span className="step__dscr">{ this.props.titleSteps[0] }</span>
+                    </div>
+                    {this.getButtonSkip()}
                 </div>
 
-                <div className="container" style={{display: 'none'}}>
-                    <div className="item-1"></div>
-                    <div className="item-2"></div>
-                    <div className="item-3"></div>
-                    <div className="item-4"></div>
-                    <div className="item-5"></div>
-                </div>
+                {this.getPreloader()}
             </div>
         );
+    }
+
+
+
+
+
+
+
+
+    getButtonBack = ()=>{
+        const isActiveStep = this.props.isActiveStep;
+
+        return (isActiveStep !== 1) ?
+            <a className="step__link  step__link--prev" onClick={() => { this.props.updateIsActiveStep(isActiveStep - 1)}}><i className="step__arrow  step__arrow--prev"/>назад</a> :
+            null;
+
+    };
+
+    getButtonSkip = ()=>{
+        const isActiveStep = this.props.isActiveStep;
+
+        return (isActiveStep !== 5) ?
+            <a className="step__link  step__link--next" onClick={() => { this.props.updateIsActiveStep(isActiveStep + 1)}}>пропустить<i className="step__arrow  step__arrow--next" /></a> :
+            null;
+    };
+
+    getPreloader =()=>{
+        return  <div className="container" style={{display: 'none'}}>
+            <div className="item-1" />
+            <div className="item-2" />
+            <div className="item-3" />
+            <div className="item-4" />
+            <div className="item-5" />
+        </div>
     }
 }
 

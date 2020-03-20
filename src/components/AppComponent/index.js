@@ -7,12 +7,15 @@ import FourthStep from "../FourthStep";
 import FifthStep from "../FifthStep";
 import Footer from "../Footer";
 import Form from "../Form";
+import titleSteps from '../../config/steps'
+import holidayTypes from '../../config/holiday_types'
 
 class AppComponent extends Component {
 
     state = {
         isActiveStep:1,
-        isActiveForm:false
+        isActiveForm:false,
+        holidaySelected:0
     };
     render() {
 
@@ -20,11 +23,11 @@ class AppComponent extends Component {
             <div className="page">
                 <div className="page__inner">
                     <div id="app">
-                        <Header updateIsActiveStep={this.updateIsActiveStep} />
+                        <Header isActiveStep={this.state.isActiveStep}  titleSteps={titleSteps} updateIsActiveStep={this.updateIsActiveStep} />
 
                         <div id="wrapper" className="page__wrap-main-content">
 
-                            { this.state.isActiveStep === 1 && <FirstStep updateIsActiveStep={this.updateIsActiveStep}  /> }
+                            { this.state.isActiveStep === 1 && <FirstStep holidaySelected={this.updateHolidaySelected} holidays={holidayTypes} updateIsActiveStep={this.updateIsActiveStep}  /> }
 
                             {  this.state.isActiveStep === 2 && <SecondStep updateIsActiveStep={this.updateIsActiveStep} /> }
 
@@ -46,6 +49,10 @@ class AppComponent extends Component {
         );
 
     }
+
+    updateHolidaySelected = (value) => {
+        this.setState({ holidaySelected : value})
+    };
 
     updateIsActiveStep = (value) => {
         this.setState({ isActiveStep : value})
