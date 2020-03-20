@@ -70,7 +70,7 @@ class Form extends Component {
         </div>
         <div className="card__content  card__order-content  card__content--fixed-default-height">
             <div className="card__form">
-                <input type="text" className="card__input user__name" placeholder="Ваше имя..." autofocus />
+                <input type="text" className="card__input user__name" placeholder="Ваше имя..." autoFocus />
                     <input type="tel" className="card__input user__phone" placeholder="Телефон..." />
                         <div className="card__line-wrapper">
                             <input type="text" className="card__input  card__input-phone  user__email" placeholder="E-mail..." />

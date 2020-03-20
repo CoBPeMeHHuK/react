@@ -36,7 +36,7 @@ class AppComponent extends Component {
 
                         </div>
 
-                        <Footer />
+                        <Footer isActiveForm={this.state.isActiveForm} updateIsActiveForm={this.updateIsActiveForm} />
 
                         {  this.state.isActiveForm && <Form />  }
 
@@ -49,7 +49,11 @@ class AppComponent extends Component {
 
     updateIsActiveStep = (value) => {
         this.setState({ isActiveStep : value})
-    }
+    };
+
+    updateIsActiveForm = (value) => {
+        this.setState({ isActiveForm : value})
+    };
 }
 
 export default AppComponent;
